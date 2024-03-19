@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="850.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <AnchorPane prefHeight="217.0" prefWidth="837.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="166.0" fitWidth="269.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/618bMLN5sRL._AC_SX679_.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="166.0" fitWidth="269.0" layoutX="291.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/61+mUK5EYnL._AC_SX679_.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="166.0" fitWidth="269.0" layoutX="560.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/51OHInRKBbL._AC_SX679_.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="6.0" layoutY="5.0" prefHeight="30.0" prefWidth="100.0" text="Products">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="51.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutY="7.0" prefHeight="36.0" prefWidth="209.0" text="The Shopping Co" textFill="#deff0a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="786.0" layoutY="12.0" mnemonicParsing="false" text="Cart" />
+            <Accordion layoutX="574.0" layoutY="7.0" />
+            <SplitMenuButton layoutX="607.0" layoutY="13.0" mnemonicParsing="false" text="Account Settings">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Account Settings" />
+                <MenuItem mnemonicParsing="false" text="Logout" />
+              </items>
+            </SplitMenuButton>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="312.0" fitWidth="435.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../OneDrive/Pictures/Screenshots/Screenshot%202024-02-14%20144430.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
