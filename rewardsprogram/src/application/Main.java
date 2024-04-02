@@ -16,7 +16,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Rewards");
+            stage.setTitle("Rewards login");
             stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -26,5 +26,9 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+		
+		
+		
+		
 	}
 }
