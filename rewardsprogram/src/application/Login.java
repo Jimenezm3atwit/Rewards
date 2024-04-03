@@ -41,7 +41,7 @@ public class Login {
         
         	
         
-    public void login(ActionEvent event) {
+    public void login(ActionEvent event) throws IOException {
         String inputUsername = username.getText().trim();
         String inputPassword = password.getText().trim();
         
@@ -49,6 +49,15 @@ public class Login {
             if (authenticateUser(inputUsername, inputPassword)) {
                 // Login successful
                 // Transition to the next screen or display a success message
+            	Parent	root = FXMLLoader.load(getClass().getResource("shopPage.fxml"));
+                
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            	
+            	
+            	
             } else {
                 // Login failed
                 Alert alert = new Alert(Alert.AlertType.ERROR);
