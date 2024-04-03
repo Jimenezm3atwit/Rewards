@@ -12,6 +12,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx"/>
-	<classpathentry kind="lib" path="C:/Users/marti/OneDrive/Documents/JavaDevLib/Lib/mysql-connector-j-8.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marti/OneDrive/Documents/JavaDevLib/Lib/com.mysql.jdbc.Driver.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

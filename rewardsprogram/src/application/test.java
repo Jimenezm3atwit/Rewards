@@ -33,7 +33,7 @@ public class test {
 
 	    public static void main(String[] args) {
 	        // Example usage
-	        addUser("user67", "password96", "user67@example.com");
+	        addUser("user99", "pass99", "user99@example.com");
 	    }
 	}
 

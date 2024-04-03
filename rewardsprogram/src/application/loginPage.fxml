@@ -35,8 +35,9 @@
             </Label>
             <TextField fx:id="username" layoutX="274.0" layoutY="57.0" promptText="username ..." />
             <PasswordField fx:id="password" layoutX="274.0" layoutY="99.0" promptText="password ..." />
-            <Button fx:id="login" layoutX="323.0" layoutY="141.0" mnemonicParsing="false" text="Login" textFill="WHITE" />
+            <Button fx:id="login" layoutX="323.0" layoutY="141.0" mnemonicParsing="false" onAction="#login" text="Login" />
             <Label fx:id="nomatch" layoutX="208.0" layoutY="183.0" prefHeight="18.0" prefWidth="256.0" textFill="RED" />
+            <Button fx:id="lsignup" layoutX="514.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchtosignup" text="Sign up!" />
          </children>
       </AnchorPane>
    </center>

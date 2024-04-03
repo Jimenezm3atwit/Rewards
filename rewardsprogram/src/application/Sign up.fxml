@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="425.0" style="-fx-background-color: #dadada;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="425.0" style="-fx-background-color: #dadada;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Signup">
    <top>
       <ImageView fitHeight="131.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
@@ -22,18 +22,19 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="137.0" layoutY="118.0" promptText="Name" />
-            <TextField layoutX="137.0" layoutY="158.0" promptText="Last Name" />
-            <TextField layoutX="137.0" layoutY="239.0" promptText="Username" />
-            <TextField layoutX="137.0" layoutY="197.0" promptText="Email" />
-            <PasswordField layoutX="137.0" layoutY="284.0" promptText="Password" />
-            <Button layoutX="130.0" layoutY="343.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" text="Sign Up" />
-            <Label fx:id="nomatch" layoutX="130.0" layoutY="279.0" prefHeight="18.0" prefWidth="256.0" textFill="RED" />
+            <TextField fx:id="sname" layoutX="137.0" layoutY="118.0" promptText="Name" />
+            <TextField fx:id="slastname" layoutX="137.0" layoutY="158.0" promptText="Last Name" />
+            <TextField fx:id="susername" layoutX="137.0" layoutY="239.0" promptText="Username" />
+            <TextField fx:id="semail" layoutX="137.0" layoutY="197.0" promptText="Email" />
+            <PasswordField fx:id="spassword" layoutX="137.0" layoutY="284.0" promptText="Password" />
+            <Button fx:id="ssignup" layoutX="137.0" layoutY="342.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" text="Sign Up" />
+            <Label fx:id="serror" layoutX="75.0" layoutY="324.0" prefHeight="18.0" prefWidth="256.0" textFill="RED" />
             <Text layoutX="146.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up">
                <font>
                   <Font name="Segoe UI Black Italic" size="36.0" />
                </font>
             </Text>
+            <Button fx:id="login" layoutX="9.0" layoutY="388.0" mnemonicParsing="false" onAction="#switchbacklogin" prefHeight="30.0" prefWidth="407.0" text="Already have an account? Login instead !" />
          </children>
       </AnchorPane>
    </center>

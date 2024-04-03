@@ -32,16 +32,16 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField floatText="\$0.00" layoutX="39.0" layoutY="14.0" prefHeight="60.0" prefWidth="213.0" />
+            <TextField fx:id="Lbalance" floatText="\$0.00" layoutX="39.0" layoutY="14.0" prefHeight="60.0" prefWidth="213.0" />
             <Text layoutX="71.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lifetime Cash Back" wrappingWidth="126.05294036865234" />
             <Label layoutX="20.0" layoutY="168.0" text="Recent Transactions">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField floatText="\$0.00" layoutX="701.0" layoutY="20.0" prefHeight="60.0" prefWidth="213.0" />
+            <TextField fx:id="pbalance" floatText="\$0.00" layoutX="701.0" layoutY="20.0" prefHeight="60.0" prefWidth="213.0" />
             <Text layoutX="744.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Present Balance" wrappingWidth="126.05294036865234" />
-            <CharmListView accessibleText="No Recent Transaction" layoutX="22.0" layoutY="199.0" prefHeight="401.0" prefWidth="891.0" />
+            <CharmListView fx:id="transactions" accessibleText="No Recent Transaction" layoutX="22.0" layoutY="199.0" prefHeight="401.0" prefWidth="891.0" />
             <Button layoutX="702.0" layoutY="115.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="209.0" text="Transfer " />
          </children>
       </AnchorPane>

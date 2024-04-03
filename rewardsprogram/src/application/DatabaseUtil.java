@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class DatabaseUtil {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/CashReturnsDB";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/cashreturnsdb";
     private static final String DATABASE_USER = "root"; // Replace with your database username
     private static final String DATABASE_PASSWORD = "Aralyn2024!!"; // Replace with your database password
 
