@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 public class Signup {
 
@@ -30,7 +31,7 @@ public class Signup {
     @FXML
     private Label serror;
     @FXML
-    private Label sscucces;
+    private Label ssuccess; // Corrected typo
     @FXML
     private TextField susername;
     @FXML
@@ -47,17 +48,41 @@ public class Signup {
 
     @FXML
     public void onSignup(ActionEvent event) throws IOException {
+        // Reset success and error messages
+        ssuccess.setText("");
+        serror.setText("");
+
         // Collect user input from text fields
-        String username = susername.getText();
-        String password = spassword.getText(); // Remember to hash passwords in real applications
-        String email = semail.getText();
-        String firstName = sfirstname.getText();
-        String lastName = slastname.getText();
+        String username = susername.getText().trim();
+        String password = spassword.getText().trim(); // Remember to hash passwords in real applications
+        String email = semail.getText().trim();
+        String firstName = sfirstname.getText().trim();
+        String lastName = slastname.getText().trim();
+
+        // Validation
+        if (!validateNames(firstName) || !validateNames(lastName)) {
+            serror.setText("First name and last name must not contain numbers.");
+            return;
+        }
+
+        if (!email.contains("@")) {
+            serror.setText("Email must be valid format '@xxxx.xxx'.");
+            return;
+        }
+
+        if (username.length() < 4) {
+            serror.setText("Username must be at least 4 characters long.");
+            return;
+        }
+
+        if (password.length() < 6) {
+            serror.setText("Password must be at least 6 characters long.");
+            return;
+        }
 
         // Add user to the database
         if (addUser(username, password, email, firstName, lastName)) {
-        	sscucces.setText("Signup succeesful! Please return to login.");
-            
+            ssuccess.setText("Signup successful! Please return to login.");
         } else {
             serror.setText("Signup failed. Please try again."); // Display an error message
         }
@@ -82,6 +107,10 @@ public class Signup {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private boolean validateNames(String name) {
+        return !Pattern.compile("[0-9]").matcher(name).find();
     }
 
     public void switchbacklogin(ActionEvent event) throws IOException {
