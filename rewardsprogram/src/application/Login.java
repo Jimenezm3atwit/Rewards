@@ -46,18 +46,23 @@ public class Login {
         String inputPassword = password.getText().trim();
         
         try {
-            if (authenticateUser(inputUsername, inputPassword)) {
-                // Login successful
-                // Transition to the next screen or display a success message
-            	Parent	root = FXMLLoader.load(getClass().getResource("shopPage.fxml"));
+            String userId = authenticateUser(inputUsername, inputPassword);
+            if (userId != null) {
+                // Login successful, prepare to transition
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("shopPage.fxml"));
+                root = loader.load();
+
+                // Get the ShopController and pass userId
+                ShopController shopController = loader.getController();
+                shopController.setUserId(userId); // Ensure ShopController has a public setUserId method
                 
+                System.out.printf("Current User Id is: " + userId);
+                // Transition to shop page
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            	
-            	
-            	
+                
             } else {
                 // Login failed
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -68,13 +73,12 @@ public class Login {
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            // Show a more user-friendly message or log the error as appropriate
         }
     }
 
-    private boolean authenticateUser(String username, String password) throws ClassNotFoundException, SQLException {
-        String sql = "SELECT Password FROM Users WHERE Username = ?";
-        // Explicitly load the driver class (might be necessary for some environments)
+
+    private String authenticateUser(String username, String password) throws ClassNotFoundException, SQLException {
+        String sql = "SELECT UserID, Password FROM Users WHERE Username = ?";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         try (Connection conn = DatabaseUtil.getConnection();
@@ -83,16 +87,12 @@ public class Login {
             pstmt.setString(1, username);
             ResultSet rs = pstmt.executeQuery();
 
-            if (rs.next()) {
-                String storedPassword = rs.getString("Password");
-                return storedPassword.equals(password); // In real applications, compare hashed passwords
+            if (rs.next() && rs.getString("Password").equals(password)) { // Ideally, hash comparison here
+                return rs.getString("UserID"); // Assuming UserId is the column name
+                
+             
             }
         }
-        return false;
+        return null; // Return null if authentication fails
     }
-    
-    
-    
-    
-    
 }
