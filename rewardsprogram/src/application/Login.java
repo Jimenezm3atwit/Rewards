@@ -54,7 +54,7 @@ public class Login {
 
                 // Get the ShopController and pass userId
                 ShopController shopController = loader.getController();
-                shopController.setUserId(userId); // Ensure ShopController has a public setUserId method
+                shopController.setUserId(userId); 
                 
                 System.out.printf("Current User Id is: " + userId);
                 // Transition to shop page
@@ -88,7 +88,7 @@ public class Login {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next() && rs.getString("Password").equals(password)) { // Ideally, hash comparison here
-                return rs.getString("UserID"); // Assuming UserId is the column name
+                return rs.getString("UserID"); 
                 
              
             }

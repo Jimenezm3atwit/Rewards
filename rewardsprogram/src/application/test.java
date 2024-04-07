@@ -14,7 +14,7 @@ public class test {
 	             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
 	            pstmt.setString(1, username);
-	            pstmt.setString(2, password); // This should be a hashed password in a real application
+	            pstmt.setString(2, password); 
 	            pstmt.setString(3, email);
 	            pstmt.setString(4, firstname);
 	            pstmt.setString(5, lastname);
@@ -29,12 +29,12 @@ public class test {
 
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            // Handle exceptions related to database connections and operations
+	           
 	        }
 	    }
 
 	    public static void main(String[] args) {
-	        // Example usage
+	        
 	        addUser("user994", "pass994", "user995@example.com","name1","name2");
 	    }
 	}

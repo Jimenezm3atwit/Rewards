@@ -20,7 +20,7 @@ public class CartController {
     private Parent root;
     
     @FXML
-    private Label cost;  // Corrected from LabelSkin to Label
+    private Label cost; 
 
     @FXML
     private ListView<Item> cartListView;
@@ -37,7 +37,7 @@ public class CartController {
 
     // Switches back to the shop page
     public void switchbackshop(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("shopPage.fxml"));  // Ensure the resource path is correct
+        Parent root = FXMLLoader.load(getClass().getResource("shopPage.fxml"));  
         
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
+<!-- Corrected import for standard JavaFX TextField -->
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="954.0" style="-fx-background-color: #dadada;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.rewardController">
    <top>
@@ -20,29 +20,24 @@
                   <Font name="System Bold" size="42.0" />
                </font>
             </Text>
-            <SplitMenuButton layoutX="704.0" layoutY="14.0" mnemonicParsing="false" text="Account Settings">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Account Settings" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
-               </items>
-            </SplitMenuButton>
+            <Button fx:id="back" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchbackshop" text="Back" />
          </children>
       </AnchorPane>
    </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="Lbalance" floatText="\$0.00" layoutX="39.0" layoutY="14.0" prefHeight="60.0" prefWidth="213.0" />
-            <Text layoutX="71.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lifetime Cash Back" wrappingWidth="126.05294036865234" />
+            <TextField fx:id="Lbalance" layoutX="39.0" layoutY="14.0" prefHeight="60.0" prefWidth="213.0" /> <!-- Removed floatText property which is not supported by standard TextField -->
+            <Text layoutX="69.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lifetime Cash Back" wrappingWidth="126.05294036865234" />
             <Label layoutX="20.0" layoutY="168.0" text="Recent Transactions">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="pbalance" floatText="\$0.00" layoutX="701.0" layoutY="20.0" prefHeight="60.0" prefWidth="213.0" />
-            <Text layoutX="744.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Present Balance" wrappingWidth="126.05294036865234" />
+            <TextField fx:id="pbalance" layoutX="701.0" layoutY="20.0" prefHeight="60.0" prefWidth="213.0" /> <!-- Removed floatText property -->
+            <Text layoutX="744.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Present Balance" wrappingWidth="126.05294036865234" />
             <Button layoutX="702.0" layoutY="115.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="209.0" text="Transfer " />
-            <ListView fx:id="recent" layoutX="15.0" layoutY="199.0" prefHeight="384.0" prefWidth="923.0" />
+            <ListView fx:id="recentTransactions" layoutX="15.0" layoutY="199.0" prefHeight="384.0" prefWidth="923.0" />
          </children>
       </AnchorPane>
    </center>

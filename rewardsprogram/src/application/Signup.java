@@ -54,7 +54,7 @@ public class Signup {
 
         // Collect user input from text fields
         String username = susername.getText().trim();
-        String password = spassword.getText().trim(); // Remember to hash passwords in real applications
+        String password = spassword.getText().trim(); 
         String email = semail.getText().trim();
         String firstName = sfirstname.getText().trim();
         String lastName = slastname.getText().trim();

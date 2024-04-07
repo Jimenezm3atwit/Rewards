@@ -72,7 +72,7 @@ public class ShopController {
         double totalCost = cartItems.stream().mapToDouble(Item::getPrice).sum();
         cartController.setCost(totalCost);
 
-        saveTransaction(userId, totalCost); // Assuming you have a method to save the transaction
+        saveTransaction(userId, totalCost); 
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));

@@ -1,45 +1,88 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class rewardController {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    
     
     @FXML
-    private ListView<String> recent; // Assuming you want to display transactions as Strings
+    private ListView<Transaction> recentTransactions; // ListView to display transactions
 
-    // Method to be called when initializing the transactions page
-    public void loadUserTransactions(String userId) {
-        List<String> transactionDetails = new ArrayList<>();
-        
-        String sql = "SELECT Date, ItemsBought, Amount FROM transactions WHERE AccountID = ? ORDER BY Date DESC";
-        
+
+    @FXML
+    public void initialize() {
+        recentTransactions.setCellFactory(lv -> new ListCell<Transaction>() {
+            @Override
+            protected void updateItem(Transaction item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+              
+                    setText(String.format("Date: %s, Items: %s, Amount: $%.2f",
+                        item.getDate().toString(), item.getItems(), item.getAmount()));
+                }
+            }
+        });
+    }
+
+    // Method to load the transaction history for a specific user
+    public void loadTransactionHistory(String userId) {
+        System.out.println("Loading transactions for user ID: " + userId);
+        ObservableList<Transaction> transactions = FXCollections.observableArrayList();
+        String sql = "SELECT Date, Items, Amount FROM transactions WHERE AccountID = ? ORDER BY Date DESC";
+
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userId);
-            
             ResultSet rs = pstmt.executeQuery();
+
             while (rs.next()) {
                 LocalDateTime date = rs.getTimestamp("Date").toLocalDateTime();
-                String itemsBought = rs.getString("ItemsBought");
+                String items = rs.getString("Items");
                 double amount = rs.getDouble("Amount");
-                
-                String transactionDetail = String.format("Date: %s, Items: %s, Amount: $%.2f", 
-                                                          date.toString(), itemsBought, amount);
-                transactionDetails.add(transactionDetail);
+
+                transactions.add(new Transaction(date, items, amount));
+                System.out.println("Transaction added: " + date + ", " + items + ", " + amount);
+            }
+            if (transactions.isEmpty()) {
+                System.out.println("No transactions found for user ID: " + userId);
+            } else {
+                recentTransactions.setItems(transactions);
+                System.out.println("Transactions loaded: " + transactions.size());
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle errors here
+            e.printStackTrace(); 
         }
-        
-        recent.getItems().setAll(transactionDetails);
     }
-}
+    
+    public void switchbackshop(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("shopPage.fxml"));  
+        
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+ 
+}}
