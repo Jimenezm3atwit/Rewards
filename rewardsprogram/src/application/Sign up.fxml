@@ -15,7 +15,7 @@
    <top>
       <ImageView fitHeight="131.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../../OneDrive/Desktop/Temp%20space%20for%20images/no-profile-picture-15257.png" />
+            <Image url="@../../images/no-profile-picture-15257.png" />
          </image>
       </ImageView>
    </top>
